@@ -37,3 +37,20 @@ FFmpeg libraries
 	- libavutil :
 	- libswscale :
 	- libswresample :
+	
+FFmpeg Tools
+	- ffmpeg : Main transcoding engine. Most often invoked from command line or another process.
+	- ffplay : Used as a minimal tool for playing audio or video
+	- ffprobe : For quickly inspecting media to extract valuable information, like how streams there are in the media or the frame rate of a video etc.
+
+
+Source
+	- No official builds
+	- Build from source code(that means you can take hold/look source code and can build on your own)
+		- Complex process
+	- Pre-build packages
+		- if we have package manager(API, Homebrew) - it will take care of installation and its dependencies
+	- Build variants
+		- Master branch(contains latest bugs fixes) vs release branch
+	- Setup procedure
+		- Easiest way - setup pre-build packages
