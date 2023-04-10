@@ -1,0 +1,39 @@
+What is FFmpeg
+	- Fast Forward Moving Picture Experts Group
+	- Open source project
+	- Collection of libraries and programs
+	- For handline multimedia files and stream
+	- Free (GPL/LGPL)
+
+
+
+MPEG - It's the alliance of working groups who are behind settin many of the most important being used today, including the MP4 format which we are all familiar with.
+
+
+Why use FFmpeg
+	- Swiss army knife of transcoding/streaming
+	- Versatile
+	- Fast(written in C with optimazation)
+	- Simple
+	- Many supported formats(codecs, formats, devices, and protocols)
+
+
+Who uses FFmpeg?
+	- Hundreds of other projects
+	- Video platform(YouTube, iTunes)
+	- Media players(VLC)
+	- Media Asset Management Systems
+	- Transcoders
+	- Video editors
+	- Mobile apps
+	- Broadcasters
+
+
+FFmpeg libraries
+	- libavcodec : contains all the encoders and decoders that FFmpeg supports.
+	- libavformat : has all the muxers and demuxers to deal with different container formats.
+	- libavfilter : Has filter that can be used to modify audio and video as per our requirements.
+	- libavdevice : supports different input and output devices.
+	- libavutil :
+	- libswscale :
+	- libswresample :
