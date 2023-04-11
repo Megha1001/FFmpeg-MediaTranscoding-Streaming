@@ -475,3 +475,34 @@ megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error https://test-videos.co.uk/vid
         }
     }
 }
+
+
+Examples of ffplay
+
+Note : To stop the video with no border - use esc key
+
+1. To play the video
+Note : It will play in default size of video(1920*1080)
+megha@Meghas-MacBook-Pro FFMPEG % pwd
+/Users/megha/Courses/FFMPEG
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4
+
+2. To play in specific size
+Note : this will show border
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -x 600 -y 600
+
+3. To play without border
+Note : but it will fill extra space with blank color
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -x 600 -y 600 -noborder
+
+4. To play without border and black color
+	Specify any dimension (width or height) then it'll calculate other one automatically
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -x 600 -noborder
+
+5. Note : In all above output video is played in centre to change the position
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -x 600 -noborder -top 0 -left 0
+
+6. For full screen
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -noborder -fs
+
+7. To disable audio
