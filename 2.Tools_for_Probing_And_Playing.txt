@@ -506,3 +506,34 @@ megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -x 600 -noborder
 megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -noborder -fs
 
 7. To disable audio
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -noborder -an
+
+8. To disable video
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -noborder -vn
+
+9. to show modes-waves
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -noborder -showmode waves
+
+10. To play video in loops
+0 : for playing forever
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error bullfinch.mp4 -y 600 -noborder -loop 0
+
+Notes : we can use below keys combination while video is playing
+- To pause and play use spacebar
+- To mute and unmute press 'm'
+- To fullscreen and back to normal use 'f' OR use double left click of mouse
+- Use 0 and 9 to increase and decrease volume [0-Inc, 9-Dec]
+- Press 'w' to cycle through show modes
+- To step through 1 frame at a time - press 's'
+- 'left' & 'right' to seek 10 sec left and right in video
+- uparrow - back 1 min & downarrow 1 min forward
+- To quit : Esc
+
+11. To play audio files
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error birds-forest.ogg -showmode waves
+
+12. to view image
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error kingfisher.jpg
+
+13. Play media by providing media link
+megha@Meghas-MacBook-Pro FFMPEG % ffplay -v error https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_10MB.mp4 -noborder -y 600
