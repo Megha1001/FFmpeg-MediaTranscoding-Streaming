@@ -1,4 +1,4 @@
-Examples 
+Examples of ffprobe
 1. show full logs
 ffprobe seagull-5s.mp4
 ffprobe version 5.1.2 Copyright (c) 2007-2022 the FFmpeg developers
@@ -382,3 +382,96 @@ megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error seagull-5s.mp4 -select_stream
 [STREAM]
 codec_name=h264
 [/STREAM]
+
+9. to supress STREAM wrappers
+megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error seagull-5s.mp4 -select_streams v -show_entries stream=codec_name -print_format default=noprint_wrappers=1
+codec_name=h264
+
+10. to get only value
+megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error seagull-5s.mp4 -select_streams v -show_entries stream=codec_name -print_format default=noprint_wrappers=1:nokey=1
+h264
+
+11. When media is URL and what to get info without downloading it
+megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_10MB.mp4 -show_format -show_streams -print_format json
+{
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 1920,
+            "height": 1080,
+            "coded_width": 1920,
+            "coded_height": 1080,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 42,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "60/1",
+            "avg_frame_rate": "60/1",
+            "time_base": "1/15360",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 153600,
+            "duration": "10.000000",
+            "bit_rate": "8382668",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "600",
+            "extradata_size": 48,
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0
+            },
+            "tags": {
+                "language": "und",
+                "handler_name": "VideoHandler",
+                "vendor_id": "[0][0][0][0]"
+            }
+        }
+    ],
+    "format": {
+        "filename": "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_10MB.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "10.000000",
+        "size": "10484984",
+        "bit_rate": "8387987",
+        "probe_score": 100,
+        "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41"
+        }
+    }
+}
