@@ -1,0 +1,31 @@
+Codecs and Containers
+--------------------------
+
+What is a codec ?
+	- comes from coder and decoder
+	- It can basically mean a format or specification for encoding and decoding, or it can actully mean a piece of software library or plugin that does the encodign and decoding.
+
+
+Why encode ?
+	Audio or video can be very big and almost always impractical to store or transfer. That's why we compress them by codec so we can consume less disk space to store it and we need less bandwidth to transfer the media.
+
+
+Why decode ? 
+	Obviously we need to decode the media when we eventually want to use it in some form.
+	For example : When we want to playback on the screen or modify it with an editor application.
+
+
+Codec Examples :
+	Video codecs : H.264, H.265, VP9, Prores, DNxHD
+	Audio codecs : PCM, AAC, MP3
+
+
+What is a container ?
+	- Package/wrapper around the media essence, it usually represent a file format and how the media data is organized in the file so that applications know how to find the right information , like how many streams there are in the file, where to find audio track.
+
+	For example :
+	Video+audio containers : MP4, MXF, Qt/MOV, MKV
+	audio : WAV, M4A
+
+Why we have so many containers ?
+	Some of the difference arise from the fact that different companies have developed different codec or format. They often focus on different problems to solve. Diff codecs offer different benefit for diff requirements
