@@ -1,0 +1,103 @@
+Transcoding
+---------------------
+
+From one codec to another
+Example : Prores to H.264
+
+Why Transcode ?
+This is because diff codec are good for different things
+
+Many processes can happen during transcoding
+	
+	Transmuxing
+	---------------------
+	From one container to another[converting container but not the codec]
+	Example : MXF to MP4
+
+	Thumbnail generation
+	---------------------
+	During transcoding process we often generates thumbnail. Thumbnails are still images form the source video. Thumbnails are usually small images extracted at different points of time from the video. it can be useful for various things
+	For example : We may want to use the first thumbnail as a representative preview image on the video
+	- Search hit
+		In the context of thumbnail generation, a search hit refers to an image or frame that is selected from a larger video or image collection to be used as a thumbnail. When generating thumbnails, an algorithm may search through the collection of images or frames to identify ones that are most representative of the video or image content, or that are most likely to capture the viewer's attention. These selected images are referred to as search hits.
+
+		The process of selecting search hits may involve analyzing factors such as image quality, color, composition, and subject matter, as well as data such as view counts and engagement metrics. Machine learning algorithms can also be used to train models that can automatically identify search hits based on patterns in the data.
+
+		Search hits are important for thumbnail generation because they can significantly impact the click-through rate and engagement with video or image content. A compelling and representative thumbnail can entice viewers to click and watch, while a poorly chosen thumbnail may lead to lower engagement and less visibility.
+
+	- Hover Scrubbing
+		Hover scrubbing is a feature in video editing software that allows you to quickly preview and navigate through a video by hovering your mouse over the timeline or scrubber bar. When you hover over a specific point in the timeline, the software shows a small preview of the video frame at that point, allowing you to quickly preview the content at that location without actually playing the video. This feature can save a lot of time when editing video because it allows you to quickly identify and select the specific parts of the video that you want to work with.
+
+		Hover scrubbing is particularly useful when working with long videos or when trying to identify specific moments within a video. By hovering over different parts of the timeline, you can easily navigate to different sections of the video and preview the content at each point. This can help you make faster and more accurate edits, and can also help you identify areas of the video that need further attention or editing.
+
+	Frame rate conversion
+	--------------------------
+		- Supporta different television statndards(PAL/NTSC)
+		- Higher FPS : preserve slow motion quality for editing
+		- Lower FPS : playback/streaming
+
+	Bitrate conversion
+	----------------------------
+		 high bit rate => high quality => high storage => more bandwidth
+		 This is why we can choose to produce lower bitrate version of the media during transcoding so that we can store it using less space.
+
+	Change GOP size
+	--------------------------
+		 GOP (Group of Pictures)
+		 Some cameras can record with a GOP of size one , which is also knows as iFrame only.
+		 In video compression, a GOP (Group of Pictures) is a collection of consecutive frames in a video stream that are compressed together as a unit. An I-frame (Intra-coded frame) is a type of frame that contains a complete image, and does not depend on any other frame for decoding. I-frames are often used as reference frames within a GOP, meaning that other frames in the GOP can be predicted from the information in the I-frame.
+
+		A typical GOP may consist of several frames, including one or more I-frames and a series of P-frames (Predicted frames) and B-frames (Bidirectional frames). P-frames and B-frames are encoded using information from preceding or succeeding frames, respectively, and are used to reduce the amount of data that needs to be transmitted or stored.
+
+		When generating thumbnails, it is often desirable to use an I-frame rather than a P-frame or B-frame, because I-frames contain a complete image and are therefore less likely to introduce visual artifacts or distortions. Using an I-frame as the basis for a thumbnail can result in a higher quality image that more accurately represents the video content.
+
+	Overlay
+	---------------------
+		In video transcoding, an overlay is an image, graphic, or text that is superimposed onto a video frame. Overlays are often used to add logos, watermarks, subtitles, captions, or other visual elements to a video. Overlays can be added to a video during the transcoding process, which involves converting a video from one format to another.
+
+		The process of adding overlays to a video during transcoding typically involves specifying the position, size, and opacity of the overlay within the video frame. The overlay can be positioned anywhere within the video frame, and can be sized and scaled to fit the desired area. The opacity of the overlay can also be adjusted to control the level of transparency or visibility of the overlay.
+
+		Overlays can be useful in video transcoding for a variety of reasons. For example, watermarks or logos can be added to protect intellectual property or to promote branding. Subtitles or captions can be added to make the video more accessible to viewers who are deaf or hard of hearing, or who do not speak the language of the video. Other types of overlays, such as annotations or graphical elements, can be added to provide additional information or context to the video content.
+
+	Subtitles / Caption
+
+	Convert video resolution
+	---------------------------
+		- Change frame dimensions
+		- SD, HD, 4K
+		- Bandwidth
+		- Storage space
+
+	Audio volume adjustment
+	-------------------------
+		- Amplify
+		- Normalize
+
+	Audio mixing
+	-------------------------
+		- Background track, voice,
+		- combine differnt channels
+		- stereo for web
+		we can combine different audio channels and mix them as we want, oftentimes the broadcast cameras record differnt channels connected to different microphones or voice in background we may want to combine the background sounds with the voice to procedue a stereo mix for publishing on the web.
+
+
+	Audio extraction
+
+	Audio resampling
+
+	Waveform
+	---------------
+		- Audio review
+		- Editng
+		- Playback
+
+
+	Apply effects
+	-----------------
+		- Flip (left , right , 180degree, etc)
+		- Cropping and padding
+		- Color adjustment(e.g. convert to black and white)
+		- Picture in picture effect
+		- Noise reduction
+
+
