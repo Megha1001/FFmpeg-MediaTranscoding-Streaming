@@ -1,0 +1,71 @@
+Fundamentals of Media
+----------------------
+
+Media is broad term that can be use either for image OR audio OR video
+
+Image
+	 Pixel
+	  - Smallest representation of a point in 2D space
+	  - Building block of an image
+	  - Has a color - represented by RGB or YUV
+	  - Can have transparency information(alpha)
+
+	 Image 
+	  - is a collection of pixel
+	  - Rectangle
+	  - has width and height
+
+	Image Resolution
+		- Represents quality
+		- Denoted as width * height
+		- Examples : HD(1920 * 1080), UHD(3840 * 2160), 4K(4096 *2160)
+
+	Image aspect ration
+		- Ratio of width and height
+		- Examples : 16:9, 4:3
+
+Audio
+	Audio Sample
+		- Smallest digital representation of a sound
+		- Building block of an audio
+		- Can be stored as 8/16/24/32 bit value(bit depth)
+		- More bits => higher quality audio
+
+	Audio Frequency
+		- How many samples per second
+		- Examples : 44.1 kHz, 48 kHz
+		- Higher Frequency => higher quality
+
+	Audio
+		- Sequence of samples played together
+		- Has a time duration
+
+	Audio channels
+		- Represents a sequence of samples
+		- Channels of the same audio track are meant to be played together
+		- Channels can be organized in "channel layouts"
+			- Mono - a single point of sound
+			- Stereo - like headset - one left and one right
+			-  5.1 & 7.1 - surround sound
+
+	Audio track : 
+		- Organize different sounds that relate to the same timeline.
+		- it represents a collection of channels that can be multiple audio tracks within a single audio file.
+		- Different audio tracks are used to organize different sounds that relates to the same timeline.
+		- The tracks may or may not be intended to be used together, for example , a documentry media file can have english track and hindi track but not meant to be played together but can mix with background track.
+
+Video
+	- Sequence of images
+	- Has time duration
+	- Each image is called as frame.
+
+	Video frame Rate(FPS)
+		Frame per second
+
+	Video compression
+		- Works by removing redundat information
+		- Spatial redundancy - within a frame
+			This means that the nearby pixels of an area on the tree frame do not very much and therefore can be encoded efficiently using fewer bits without losing significant quality.
+			The same technique is used for individual image file compression as well
+		- Temporal redundancy - accross the frame
+			
