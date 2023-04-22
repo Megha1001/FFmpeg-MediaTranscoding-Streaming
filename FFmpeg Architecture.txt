@@ -1,0 +1,18 @@
+Input --> ffmpeg --> output
+
+
+	Transcoding
+	-------------
+	Input --> Unpack --> Uncompress --> Compress --> Pack --> Output
+
+	Unpack --> aka Demux --> decoupling audio and video
+	Uncompress --> aka Decode --> converting into orignal format
+	compress --> aka Encode
+	Pack --> aka Mux
+
+	But besies just simply going from one format to another, as show above, ffmpeg can also modify the video and audio in other ways, for example , by scaling the video or amplying the audio it does this by help of filter
+
+
+	Transcoding and Filters
+	-------------------------
+	Input --> Unpack --> Uncompress --> Filter1 --> Filter2 --> Filter3 --> Compress --> Pack --> Output
