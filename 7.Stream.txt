@@ -1,0 +1,782 @@
+
+
+What is a Stream
+	- Video or audio track packed inside a container
+	Inspect with ffprobe
+
+		 megha@Meghas-MacBook-Pro FFMPEG % ffprobe multitrack.mp4 -v error -show_format -show_streams -print_format json
+{
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+            "profile": "High",
+            "codec_type": "video",
+            "codec_tag_string": "avc1",
+            "codec_tag": "0x31637661",
+            "width": 1920,
+            "height": 1080,
+            "coded_width": 1920,
+            "coded_height": 1080,
+            "closed_captions": 0,
+            "film_grain": 0,
+            "has_b_frames": 2,
+            "sample_aspect_ratio": "1:1",
+            "display_aspect_ratio": "16:9",
+            "pix_fmt": "yuv420p",
+            "level": 40,
+            "chroma_location": "left",
+            "field_order": "progressive",
+            "refs": 1,
+            "is_avc": "true",
+            "nal_length_size": "4",
+            "id": "0x1",
+            "r_frame_rate": "30000/1001",
+            "avg_frame_rate": "30000/1001",
+            "time_base": "1/30000",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 150150,
+            "duration": "5.005000",
+            "bit_rate": "2695323",
+            "bits_per_raw_sample": "8",
+            "nb_frames": "150",
+            "extradata_size": 46,
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0
+            },
+            "tags": {
+                "language": "und",
+                "handler_name": "MediaHandler",
+                "vendor_id": "[0][0][0][0]"
+            }
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_long_name": "AAC (Advanced Audio Coding)",
+            "profile": "LC",
+            "codec_type": "audio",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "fltp",
+            "sample_rate": "44100",
+            "channels": 2,
+            "channel_layout": "stereo",
+            "bits_per_sample": 0,
+            "id": "0x2",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/44100",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 221162,
+            "duration": "5.015011",
+            "bit_rate": "128362",
+            "nb_frames": "217",
+            "extradata_size": 5,
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0
+            },
+            "tags": {
+                "language": "eng",
+                "handler_name": "MediaHandler",
+                "vendor_id": "[0][0][0][0]"
+            }
+        },
+        {
+            "index": 2,
+            "codec_name": "aac",
+            "codec_long_name": "AAC (Advanced Audio Coding)",
+            "profile": "LC",
+            "codec_type": "audio",
+            "codec_tag_string": "mp4a",
+            "codec_tag": "0x6134706d",
+            "sample_fmt": "fltp",
+            "sample_rate": "44100",
+            "channels": 2,
+            "channel_layout": "stereo",
+            "bits_per_sample": 0,
+            "id": "0x3",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "time_base": "1/44100",
+            "start_pts": 0,
+            "start_time": "0.000000",
+            "duration_ts": 221162,
+            "duration": "5.015011",
+            "bit_rate": "128362",
+            "nb_frames": "217",
+            "extradata_size": 5,
+            "disposition": {
+                "default": 1,
+                "dub": 0,
+                "original": 0,
+                "comment": 0,
+                "lyrics": 0,
+                "karaoke": 0,
+                "forced": 0,
+                "hearing_impaired": 0,
+                "visual_impaired": 0,
+                "clean_effects": 0,
+                "attached_pic": 0,
+                "timed_thumbnails": 0,
+                "captions": 0,
+                "descriptions": 0,
+                "metadata": 0,
+                "dependent": 0,
+                "still_image": 0
+            },
+            "tags": {
+                "language": "eng",
+                "handler_name": "MediaHandler",
+                "vendor_id": "[0][0][0][0]"
+            }
+        }
+    ],
+    "format": {
+        "filename": "multitrack.mp4",
+        "nb_streams": 3,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "5.039000",
+        "size": "1855707",
+        "bit_rate": "2946151",
+        "probe_score": 100,
+        "tags": {
+            "major_brand": "isom",
+            "minor_version": "512",
+            "compatible_brands": "isomiso2avc1mp41",
+            "encoder": "Lavf58.45.100"
+        }
+    }
+}
+
+
+	Stream selection
+	  - Required for filters and outputs(-map)
+	  - Example : extract first audio stream
+	  - Stream selection syntax
+	  	<input-index>:<stream-type>:<stream-index>
+	  		Syntax : 
+	  			- <input-index>
+	  				ffmpeg -i background.mp4 -i overlay.png -i sounds.wav
+	  							-0					-1				-2
+	  				- Implies all the streams of the input(if you just specify input index it will refer to all the streams)
+
+	  			-<input-index>:<stream:index>
+	  				Container
+	  					Video stream --> 0:0
+	  					Audio stream --> 0:1
+	  					Audio stream --> 0:2
+
+	  			-<input-index>:<stream-type>
+	  				Container
+	  					Video stream --> 0:v
+	  					Audio stream ---
+	  									| -->0:a
+	  					Audio stream ---
+
+	  				- Implies all the streams of that type of the input
+
+	  			-<input-index>:<stream-type>:<stream-index>
+	  			Container
+	  					Video stream --> 0:v:0
+	  					Audio stream --> 0:a:0
+	  					Audio stream --> 0:a:1
+
+
+	  		Examples
+	  			1. Outputing 1s track
+	  					ffmpeg -v error -y -i multitrack.mp4 -to 1 multitrack-1s.mp4
+						megha@Meghas-MacBook-Pro FFMPEG % ffprobe multitrack-1s.mp4 -v error -show_format -show_streams -print_format json
+							{
+							    "streams": [
+							        {
+							            "index": 0,
+							            "codec_name": "h264",
+							            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+							            "profile": "High",
+							            "codec_type": "video",
+							            "codec_tag_string": "avc1",
+							            "codec_tag": "0x31637661",
+							            "width": 1920,
+							            "height": 1080,
+							            "coded_width": 1920,
+							            "coded_height": 1080,
+							            "closed_captions": 0,
+							            "film_grain": 0,
+							            "has_b_frames": 2,
+							            "sample_aspect_ratio": "1:1",
+							            "display_aspect_ratio": "16:9",
+							            "pix_fmt": "yuv420p",
+							            "level": 40,
+							            "chroma_location": "left",
+							            "field_order": "progressive",
+							            "refs": 1,
+							            "is_avc": "true",
+							            "nal_length_size": "4",
+							            "id": "0x1",
+							            "r_frame_rate": "30000/1001",
+							            "avg_frame_rate": "30000/1001",
+							            "time_base": "1/30000",
+							            "start_pts": 0,
+							            "start_time": "0.000000",
+							            "duration_ts": 30030,
+							            "duration": "1.001000",
+							            "bit_rate": "3547900",
+							            "bits_per_raw_sample": "8",
+							            "nb_frames": "30",
+							            "extradata_size": 46,
+							            "disposition": {
+							                "default": 1,
+							                "dub": 0,
+							                "original": 0,
+							                "comment": 0,
+							                "lyrics": 0,
+							                "karaoke": 0,
+							                "forced": 0,
+							                "hearing_impaired": 0,
+							                "visual_impaired": 0,
+							                "clean_effects": 0,
+							                "attached_pic": 0,
+							                "timed_thumbnails": 0,
+							                "captions": 0,
+							                "descriptions": 0,
+							                "metadata": 0,
+							                "dependent": 0,
+							                "still_image": 0
+							            },
+							            "tags": {
+							                "language": "und",
+							                "handler_name": "MediaHandler",
+							                "vendor_id": "[0][0][0][0]",
+							                "encoder": "Lavc59.37.100 libx264"
+							            }
+							        },
+							        {
+							            "index": 1,
+							            "codec_name": "aac",
+							            "codec_long_name": "AAC (Advanced Audio Coding)",
+							            "profile": "LC",
+							            "codec_type": "audio",
+							            "codec_tag_string": "mp4a",
+							            "codec_tag": "0x6134706d",
+							            "sample_fmt": "fltp",
+							            "sample_rate": "44100",
+							            "channels": 2,
+							            "channel_layout": "stereo",
+							            "bits_per_sample": 0,
+							            "id": "0x2",
+							            "r_frame_rate": "0/0",
+							            "avg_frame_rate": "0/0",
+							            "time_base": "1/44100",
+							            "start_pts": 0,
+							            "start_time": "0.000000",
+							            "duration_ts": 44100,
+							            "duration": "1.000000",
+							            "bit_rate": "123539",
+							            "nb_frames": "45",
+							            "extradata_size": 5,
+							            "disposition": {
+							                "default": 1,
+							                "dub": 0,
+							                "original": 0,
+							                "comment": 0,
+							                "lyrics": 0,
+							                "karaoke": 0,
+							                "forced": 0,
+							                "hearing_impaired": 0,
+							                "visual_impaired": 0,
+							                "clean_effects": 0,
+							                "attached_pic": 0,
+							                "timed_thumbnails": 0,
+							                "captions": 0,
+							                "descriptions": 0,
+							                "metadata": 0,
+							                "dependent": 0,
+							                "still_image": 0
+							            },
+							            "tags": {
+							                "language": "eng",
+							                "handler_name": "MediaHandler",
+							                "vendor_id": "[0][0][0][0]"
+							            }
+							        }
+							    ],
+							    "format": {
+							        "filename": "multitrack-1s.mp4",
+							        "nb_streams": 2,
+							        "nb_programs": 0,
+							        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+							        "format_long_name": "QuickTime / MOV",
+							        "start_time": "0.000000",
+							        "duration": "1.001000",
+							        "size": "462244",
+								        "bit_rate": "3694257",
+							        "probe_score": 100,
+							        "tags": {
+							            "major_brand": "isom",
+							            "minor_version": "512",
+							            "compatible_brands": "isomiso2avc1mp41",
+							            "encoder": "Lavf59.27.100"
+							        }
+							    }
+							}
+
+
+		Notes :
+			Output doesnot have all the audio streams it is because if we dont specify map option it will bydefault take one video and one audio based on some criteria like video resolution, number of channenls etc
+			if we want all the streams
+				- specify -map 0
+
+					megha@Meghas-MacBook-Pro FFMPEG % ffmpeg -v error -y -i multitrack.mp4 -to 1 -map 0 multitrack-1s.mp4
+		megha@Meghas-MacBook-Pro FFMPEG % ffprobe multitrack-1s.mp4 -v error -show_format -show_streams -print_format json
+				{
+				    "streams": [
+				        {
+				            "index": 0,
+				            "codec_name": "h264",
+				            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+				            "profile": "High",
+				            "codec_type": "video",
+				            "codec_tag_string": "avc1",
+				            "codec_tag": "0x31637661",
+				            "width": 1920,
+				            "height": 1080,
+				            "coded_width": 1920,
+				            "coded_height": 1080,
+				            "closed_captions": 0,
+				            "film_grain": 0,
+				            "has_b_frames": 2,
+				            "sample_aspect_ratio": "1:1",
+				            "display_aspect_ratio": "16:9",
+				            "pix_fmt": "yuv420p",
+				            "level": 40,
+				            "chroma_location": "left",
+				            "field_order": "progressive",
+				            "refs": 1,
+				            "is_avc": "true",
+				            "nal_length_size": "4",
+				            "id": "0x1",
+				            "r_frame_rate": "30000/1001",
+				            "avg_frame_rate": "30000/1001",
+				            "time_base": "1/30000",
+				            "start_pts": 0,
+				            "start_time": "0.000000",
+				            "duration_ts": 30030,
+				            "duration": "1.001000",
+				            "bit_rate": "3547900",
+				            "bits_per_raw_sample": "8",
+				            "nb_frames": "30",
+				            "extradata_size": 46,
+				            "disposition": {
+				                "default": 1,
+				                "dub": 0,
+				                "original": 0,
+				                "comment": 0,
+				                "lyrics": 0,
+				                "karaoke": 0,
+				                "forced": 0,
+				                "hearing_impaired": 0,
+				                "visual_impaired": 0,
+				                "clean_effects": 0,
+				                "attached_pic": 0,
+				                "timed_thumbnails": 0,
+				                "captions": 0,
+				                "descriptions": 0,
+				                "metadata": 0,
+				                "dependent": 0,
+				                "still_image": 0
+				            },
+				            "tags": {
+				                "language": "und",
+				                "handler_name": "MediaHandler",
+				                "vendor_id": "[0][0][0][0]",
+				                "encoder": "Lavc59.37.100 libx264"
+				            }
+				        },
+				        {
+				            "index": 1,
+				            "codec_name": "aac",
+				            "codec_long_name": "AAC (Advanced Audio Coding)",
+				            "profile": "LC",
+				            "codec_type": "audio",
+				            "codec_tag_string": "mp4a",
+				            "codec_tag": "0x6134706d",
+				            "sample_fmt": "fltp",
+				            "sample_rate": "44100",
+				            "channels": 2,
+				            "channel_layout": "stereo",
+				            "bits_per_sample": 0,
+				            "id": "0x2",
+				            "r_frame_rate": "0/0",
+				            "avg_frame_rate": "0/0",
+				            "time_base": "1/44100",
+				            "start_pts": 0,
+				            "start_time": "0.000000",
+				            "duration_ts": 44100,
+				            "duration": "1.000000",
+				            "bit_rate": "123539",
+				            "nb_frames": "45",
+				            "extradata_size": 5,
+				            "disposition": {
+				                "default": 1,
+				                "dub": 0,
+				                "original": 0,
+				                "comment": 0,
+				                "lyrics": 0,
+				                "karaoke": 0,
+				                "forced": 0,
+				                "hearing_impaired": 0,
+				                "visual_impaired": 0,
+				                "clean_effects": 0,
+				                "attached_pic": 0,
+				                "timed_thumbnails": 0,
+				                "captions": 0,
+				                "descriptions": 0,
+				                "metadata": 0,
+				                "dependent": 0,
+				                "still_image": 0
+				            },
+				            "tags": {
+				                "language": "eng",
+				                "handler_name": "MediaHandler",
+				                "vendor_id": "[0][0][0][0]"
+				            }
+				        },
+				        {
+				            "index": 2,
+				            "codec_name": "aac",
+				            "codec_long_name": "AAC (Advanced Audio Coding)",
+				            "profile": "LC",
+				            "codec_type": "audio",
+				            "codec_tag_string": "mp4a",
+				            "codec_tag": "0x6134706d",
+				            "sample_fmt": "fltp",
+				            "sample_rate": "44100",
+				            "channels": 2,
+				            "channel_layout": "stereo",
+				            "bits_per_sample": 0,
+				            "id": "0x3",
+				            "r_frame_rate": "0/0",
+				            "avg_frame_rate": "0/0",
+				            "time_base": "1/44100",
+				            "start_pts": 0,
+				            "start_time": "0.000000",
+				            "duration_ts": 44100,
+				            "duration": "1.000000",
+				            "bit_rate": "123539",
+				            "nb_frames": "45",
+				            "extradata_size": 5,
+				            "disposition": {
+				                "default": 1,
+				                "dub": 0,
+				                "original": 0,
+				                "comment": 0,
+				                "lyrics": 0,
+				                "karaoke": 0,
+				                "forced": 0,
+				                "hearing_impaired": 0,
+				                "visual_impaired": 0,
+				                "clean_effects": 0,
+				                "attached_pic": 0,
+				                "timed_thumbnails": 0,
+				                "captions": 0,
+				                "descriptions": 0,
+				                "metadata": 0,
+				                "dependent": 0,
+				                "still_image": 0
+				            },
+				            "tags": {
+				                "language": "eng",
+				                "handler_name": "MediaHandler",
+				                "vendor_id": "[0][0][0][0]"
+				            }
+				        }
+				    ],
+				    "format": {
+				        "filename": "multitrack-1s.mp4",
+				        "nb_streams": 3,
+				        "nb_programs": 0,
+				        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+				        "format_long_name": "QuickTime / MOV",
+				        "start_time": "0.000000",
+				        "duration": "1.001000",
+				        "size": "478734",
+				        "bit_rate": "3826045",
+				        "probe_score": 100,
+				        "tags": {
+				            "major_brand": "isom",
+				            "minor_version": "512",
+				            "compatible_brands": "isomiso2avc1mp41",
+				            "encoder": "Lavf59.27.100"
+				        }
+				    }
+				}
+
+		2. if we want only video stream
+
+			megha@Meghas-MacBook-Pro FFMPEG % ffmpeg -v error -y -i  multitrack.mp4 -to 1 -map 0:v multitrack-1s.mp4
+
+			'OR'
+			ffmpeg -v error -y -i  multitrack.mp4 -to 1 -map 0:0 multitrack-1s.mp4
+
+
+			megha@Meghas-MacBook-Pro FFMPEG % ffprobe multitrack-1s.mp4 -v error -show_format -show_streams -print_format json
+			{
+			    "streams": [
+			        {
+			            "index": 0,
+			            "codec_name": "h264",
+			            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+			            "profile": "High",
+			            "codec_type": "video",
+			            "codec_tag_string": "avc1",
+			            "codec_tag": "0x31637661",
+			            "width": 1920,
+			            "height": 1080,
+			            "coded_width": 1920,
+			            "coded_height": 1080,
+			            "closed_captions": 0,
+			            "film_grain": 0,
+			            "has_b_frames": 2,
+			            "sample_aspect_ratio": "1:1",
+			            "display_aspect_ratio": "16:9",
+			            "pix_fmt": "yuv420p",
+			            "level": 40,
+			            "chroma_location": "left",
+			            "field_order": "progressive",
+			            "refs": 1,
+			            "is_avc": "true",
+			            "nal_length_size": "4",
+			            "id": "0x1",
+			            "r_frame_rate": "30000/1001",
+			            "avg_frame_rate": "30000/1001",
+			            "time_base": "1/30000",
+			            "start_pts": 0,
+			            "start_time": "0.000000",
+			            "duration_ts": 30030,
+			            "duration": "1.001000",
+			            "bit_rate": "3547900",
+			            "bits_per_raw_sample": "8",
+			            "nb_frames": "30",
+			            "extradata_size": 46,
+			            "disposition": {
+			                "default": 1,
+			                "dub": 0,
+			                "original": 0,
+			                "comment": 0,
+			                "lyrics": 0,
+			                "karaoke": 0,
+			                "forced": 0,
+			                "hearing_impaired": 0,
+			                "visual_impaired": 0,
+			                "clean_effects": 0,
+			                "attached_pic": 0,
+			                "timed_thumbnails": 0,
+			                "captions": 0,
+			                "descriptions": 0,
+			                "metadata": 0,
+			                "dependent": 0,
+			                "still_image": 0
+			            },
+			            "tags": {
+			                "language": "und",
+			                "handler_name": "MediaHandler",
+			                "vendor_id": "[0][0][0][0]",
+			                "encoder": "Lavc59.37.100 libx264"
+			            }
+			        }
+			    ],
+			    "format": {
+			        "filename": "multitrack-1s.mp4",
+			        "nb_streams": 1,
+			        "nb_programs": 0,
+			        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+			        "format_long_name": "QuickTime / MOV",
+			        "start_time": "0.000000",
+			        "duration": "1.001000",
+			        "size": "445158",
+			        "bit_rate": "3557706",
+			        "probe_score": 100,
+			        "tags": {
+			            "major_brand": "isom",
+			            "minor_version": "512",
+			            "compatible_brands": "isomiso2avc1mp41",
+			            "encoder": "Lavf59.27.100"
+			        }
+			    }
+			}
+
+		3. To mix two video -> taking video stream from one and audio stream from another
+		megha@Meghas-MacBook-Pro FFMPEG % ffmpeg -v error -y -i multitrack.mp4 -i cow_4k.mp4 -to 4 -map 0:v -map 1:a multitrack-1s.mp4
+		megha@Meghas-MacBook-Pro FFMPEG % ffprobe -v error multitrack-1s.mp4 -show_streams -show_format -print_format json
+		{
+		    "streams": [
+		        {
+		            "index": 0,
+		            "codec_name": "h264",
+		            "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+		            "profile": "High",
+		            "codec_type": "video",
+		            "codec_tag_string": "avc1",
+		            "codec_tag": "0x31637661",
+		            "width": 1920,
+		            "height": 1080,
+		            "coded_width": 1920,
+		            "coded_height": 1080,
+		            "closed_captions": 0,
+		            "film_grain": 0,
+		            "has_b_frames": 2,
+		            "sample_aspect_ratio": "1:1",
+		            "display_aspect_ratio": "16:9",
+		            "pix_fmt": "yuv420p",
+		            "level": 40,
+		            "chroma_location": "left",
+		            "field_order": "progressive",
+		            "refs": 1,
+		            "is_avc": "true",
+		            "nal_length_size": "4",
+		            "id": "0x1",
+		            "r_frame_rate": "30000/1001",
+		            "avg_frame_rate": "30000/1001",
+		            "time_base": "1/30000",
+		            "start_pts": 0,
+		            "start_time": "0.000000",
+		            "duration_ts": 120120,
+		            "duration": "4.004000",
+		            "bit_rate": "2517564",
+		            "bits_per_raw_sample": "8",
+		            "nb_frames": "120",
+		            "extradata_size": 46,
+		            "disposition": {
+		                "default": 1,
+		                "dub": 0,
+		                "original": 0,
+		                "comment": 0,
+		                "lyrics": 0,
+		                "karaoke": 0,
+		                "forced": 0,
+		                "hearing_impaired": 0,
+		                "visual_impaired": 0,
+		                "clean_effects": 0,
+		                "attached_pic": 0,
+		                "timed_thumbnails": 0,
+		                "captions": 0,
+		                "descriptions": 0,
+		                "metadata": 0,
+		                "dependent": 0,
+		                "still_image": 0
+		            },
+		            "tags": {
+		                "language": "und",
+		                "handler_name": "MediaHandler",
+		                "vendor_id": "[0][0][0][0]",
+		                "encoder": "Lavc59.37.100 libx264"
+		            }
+		        },
+		        {
+		            "index": 1,
+		            "codec_name": "aac",
+		            "codec_long_name": "AAC (Advanced Audio Coding)",
+		            "profile": "LC",
+		            "codec_type": "audio",
+		            "codec_tag_string": "mp4a",
+		            "codec_tag": "0x6134706d",
+		            "sample_fmt": "fltp",
+		            "sample_rate": "48000",
+		            "channels": 2,
+		            "channel_layout": "stereo",
+		            "bits_per_sample": 0,
+		            "id": "0x2",
+		            "r_frame_rate": "0/0",
+		            "avg_frame_rate": "0/0",
+		            "time_base": "1/48000",
+		            "start_pts": 0,
+		            "start_time": "0.000000",
+		            "duration_ts": 192000,
+		            "duration": "4.000000",
+		            "bit_rate": "125102",
+		            "nb_frames": "189",
+		            "extradata_size": 5,
+		            "disposition": {
+		                "default": 1,
+		                "dub": 0,
+		                "original": 0,
+		                "comment": 0,
+		                "lyrics": 0,
+		                "karaoke": 0,
+		                "forced": 0,
+		                "hearing_impaired": 0,
+		                "visual_impaired": 0,
+		                "clean_effects": 0,
+		                "attached_pic": 0,
+		                "timed_thumbnails": 0,
+		                "captions": 0,
+		                "descriptions": 0,
+		                "metadata": 0,
+		                "dependent": 0,
+		                "still_image": 0
+		            },
+		            "tags": {
+		                "language": "und",
+		                "handler_name": "Media Handler",
+		                "vendor_id": "[0][0][0][0]"
+		            }
+		        }
+		    ],
+		    "format": {
+		        "filename": "multitrack-1s.mp4",
+		        "nb_streams": 2,
+		        "nb_programs": 0,
+		        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+		        "format_long_name": "QuickTime / MOV",
+		        "start_time": "0.000000",
+		        "duration": "4.004000",
+		        "size": "1328703",
+		        "bit_rate": "2654751",
+		        "probe_score": 100,
+		        "tags": {
+		            "major_brand": "isom",
+		            "minor_version": "512",
+		            "compatible_brands": "isomiso2avc1mp41",
+		            "encoder": "Lavf59.27.100"
+		        }
+		    }
+		}
