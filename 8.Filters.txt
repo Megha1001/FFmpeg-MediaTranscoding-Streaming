@@ -1,0 +1,40 @@
+FILTER
+-------------
+
+- change the media in some way
+- Usually works on either video or audio
+- Mostly common filters come from libavfilter
+
+FILTER OPTIONS
+------------------
+
+- Affects how the filter works
+- Key-value pairs, or direct value
+- Sometimes the keys have short names
+- Syntax :
+	- filter=key1=value1:key2=value2...
+	Example :
+	- scale=width=1920:height=1080 --> FULL NAME OF KEY=VALUE pairs
+	- scale=w=1920:h=1080 --> Shorter name of k=v pair
+	- scale=1920:1080 --> contains values only
+
+
+FILTER INPUTS and outputs
+- One or more inputs
+- One or more outputs
+- Inputs and outputs can be labelled
+
+
+LABELLING INPUTS and OUTPUTS
+- Readable names
+- Useful for forming non-linear filter graphs
+- Enclosed in square brackets :[a_label]
+- Stream selectors can be used as input labels, e.g. [0:v],[1:a:2] etc
+
+FIlter chain
+- Sequence of multiple filters
+- Each filter connected to the next in the chain
+- Filters seperated with comma ","
+- Example :
+	- filter1=k11=v11:k22=v122,filter2=k21=v21,filter3=k31=v31:k32=v32
+
