@@ -1,0 +1,52 @@
+FILTER GRAPHs
+--------------------
+- Multiple filter chains
+- can be non-linear
+- Multiple inputs/outputs
+- Chains sepearted with semicolon ";"
+- Can be specified with -vf, -af or -filter_complex
+
+
+Filter Graph(-vf)
+- SImple video processing graphs with single input and output
+
+megha@Meghas-MacBook-Pro FFMPEG % ffmpeg -v error -y -i bullfinch.mp4 -vf "split[bg][ol];[bg]scale=width=1920:height=1080,format=gray[bg_out];[ol]scale=-1:480,hflip[ol_out];[bg_out][ol_out]overlay=x=W-w:y=(H-h)/2" ol.mp4
+
+Filter Graph(-af)
+- Simple audio processing graphs with single input and output
+megha@Meghas-MacBook-Pro FFMPEG % ffmpeg -y -i four_channel_stream.wav -af "asplit=2[voice][bg];[voice]volume=volume=2,pan
+=mono|c0=c0+c1[voice_out];[bg]volume=volume=0.5,pan=mono|c0=c2+c3[bg_out];[voice_out][bg_out]amerge=inputs=2" audio_out.wa
+v
+ffmpeg version 5.1.2 Copyright (c) 2000-2022 the FFmpeg developers
+  built with Apple clang version 14.0.0 (clang-1400.0.29.202)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/5.1.2_6 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-neon
+  libavutil      57. 28.100 / 57. 28.100
+  libavcodec     59. 37.100 / 59. 37.100
+  libavformat    59. 27.100 / 59. 27.100
+  libavdevice    59.  7.100 / 59.  7.100
+  libavfilter     8. 44.100 /  8. 44.100
+  libswscale      6.  7.100 /  6.  7.100
+  libswresample   4.  7.100 /  4.  7.100
+  libpostproc    56.  6.100 / 56.  6.100
+Input #0, wav, from 'four_channel_stream.wav':
+  Metadata:
+    encoder         : Lavf58.76.100
+  Duration: 00:00:07.02, bitrate: 3072 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, 4.0, s16, 3072 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+[Parsed_amerge_5 @ 0x6000025b4fd0] Input channel layouts overlap: output layout will be determined by the number of distinct input channels
+Output #0, wav, to 'audio_out.wav':
+  Metadata:
+    ISFT            : Lavf59.27.100
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+    Metadata:
+      encoder         : Lavc59.37.100 pcm_s16le
+size=    1316kB time=00:00:07.01 bitrate=1536.1kbits/s speed= 560x
+video:0kB audio:1316kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.005788%
+
+
+FILTER GRAPH(-filter_complex) : Can be used for bothh audio and video
+- More versatile
+- Multiple inputs and outputs
