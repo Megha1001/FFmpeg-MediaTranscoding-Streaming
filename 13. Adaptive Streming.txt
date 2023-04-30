@@ -1,0 +1,15 @@
+ADAPTIVE STREAMING
+-------------------
+
+command to find bitrate
+------------------------
+ffprobe -v error <video_name.mp4> -print_format default-=noprint_wrappers=1:nokey=1 -show_entries format=bit_rate
+
+
+- Multiple qualities(resolution/bitrate)
+- Player can adapt dynamically based on currect conditions
+- Segmented
+
+Adaptive Resolution
+	- Adapt on the basis of resolution
+		- 1920*1080 , 1280*720, 854*480, 426*240
