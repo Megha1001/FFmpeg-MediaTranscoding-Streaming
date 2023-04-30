@@ -1,0 +1,30 @@
+PROGRESSIVE DOWNLOAD
+-------------------
+	- downloading only the required parts of the media as and when needed.
+
+
+Single-file media
+	- Not segmented
+	- Easier to handle
+	- Native browser support(HTML5 <video>and <audio/>)
+	- Easily copy
+	- Easily download
+	- Send to other devices
+
+	Container Formats
+		- MP4
+		- Ogg
+		- WebM
+
+	- How playback works
+		- What is the file format ? do I know how to parse the file ?
+		- is it audio or video or both ?
+		- What is the video width and height?
+		- Codecs
+		- If I have to seek to the 123rd second, where in this file can i find the media data for that particular time ?
+			- This info present in index within the container
+			 	- THE INDEX
+			 		- Lookup table
+			 		- Where to find media data of a time or frame
+			 		- Difficult for the encoder to know the contents fo the index beforehand
+			 		  that why these index found at the end of MP4 file
