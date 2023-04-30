@@ -1,0 +1,19 @@
+INTRODUCTION TO STREAMING
+----------------------------
+
+Streaming : Media is consumable over a network without waiting for the whole media to be available
+
+							
+		___________ Distribution__________-> Tablet	
+		|
+		|
+server	
+		|
+		|___________Ingest__________________<- Camera(Live)
+
+
+
+Streaming Playback
+	- playable instantly
+	- Seekable
+	- Adaptive
