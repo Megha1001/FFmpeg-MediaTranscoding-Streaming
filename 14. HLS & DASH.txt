@@ -1,0 +1,32 @@
+HLS & DASH
+
+--> Adaptive bit streaming solutions
+
+HLS									| 			DASH
+- HTTP Live streaming				|	- Dynamic Adaptive Streming over HTTP
+- Developed by Apple				|	- MPEG-DASH
+- Released in 2009					|	- First international standard in 2012
+- Most popular streaming format		|	- Collaboration of many companies
+- Proprietary						|	
+- Browser Support					| 	- Browser Support
+	Safari : native					|		MSE(Media Support Extension)
+	Others : MSE					|
+- Codec
+	H.264/AVC						|	- Codec
+	H.265/HEVC						|		codec agnostic(Support different video and audio codecs
+									|		without being tied to any specific codec.
+- Container							|
+	-TS, fMP4(Fragmeneted MP4)		| 	- Container
+									| 		fMP4
+- Manifest							| 	- Manifest
+	- M3U8							|		- MPD
+		- Master playlist			|			- XML
+		- Media playlist			|
+
+
+
+
+
+Common characteristice
+	Both are based on HTTP
+
