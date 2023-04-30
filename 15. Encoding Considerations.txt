@@ -1,0 +1,97 @@
+Encoding Considerations
+
+Frame Types : I,B,P
+	I(intra frame) : Not dependent on any frame
+	P(predicted frame) : donot full image, depend on preciding I frame to decode.
+		 P-frames (predicted frames) are coded based on the information from the previous I-frame (intra-frame) or P-frame in the video sequence.
+		 P-frames can depend on preceding I-frames or preceding P-frames, as well as preceding 
+	B(by directional frame) : Depend on preciding + following frames
+
+Group of Pictures : GOP
+	In video compression, a GOP (Group of Pictures) is a collection of frames consisting of one I-frame (intra-frame) followed by a series of B-frames (bidirectional frames) and/or P-frames (predicted frames). 
+
+	It is not mandatory for the first frame of every GOP to be an I-frame, but it is a common practice. The reason for this is that an I-frame is a keyframe, which means it can be decoded independently without any information from the preceding frames. In contrast, P-frames and B-frames are coded based on the information from the previous frames, so decoding them requires the availability of the preceding frames. 
+
+	Having an I-frame as the first frame of a GOP ensures that the decoder can start decoding the GOP without any dependency on the previous GOP. However, some video compression algorithms may use different GOP structures that deviate from this common practice, depending on the specific needs and requirements of the video application.
+
+
+	GOP structure : -> closed and Open GOP
+	A closed GOP structure is one in which the first frame of the GOP is an I-frame, and the last frame is a P-frame or an I-frame. This means that each GOP is self-contained and can be decoded independently without any information from the adjacent GOPs. Closed GOPs are commonly used in broadcast and DVD applications, as they provide random access to different parts of the video.
+
+	an open GOP structure is one in which the last frame of the GOP is a B-frame, and the next GOP starts with a B-frame that refers to the previous B-frame in the previous GOP. This means that open GOPs are dependent on the adjacent GOPs and cannot be decoded independently. Open GOPs are commonly used in streaming applications, as they allow for efficient compression by reusing motion vectors and prediction information across GOP boundaries.
+
+	The choice between closed and open GOP structures depends on the specific needs and requirements of the video application. Closed GOPs provide random access and can be used in applications where random access is important, while open GOPs provide efficient compression and can be used in applications where streaming is important.
+
+
+	Segments in Adaptive Streaming
+
+	Variant-1
+	A(5Mbps)
+	A0 ---> A1 ---> A2 ---> A3
+	B0 ---> B1 ---> B2 ---> B3
+
+	if in middle of A1 Bandwidth drops then player will switch to B2(starting from next segment i.e. B2) but lets say frames of the next segment depends on the frames of the current segment then will end up in downloading B1 as well in order to decode and play.
+	This is not good, that's why we try to produce the segments that are self contained. i.e. CLOSED GOPs --> by this we can avoid problem of interdependence between segments
+
+	Segment duration --> Long or Short ?
+
+	Long --> In above example if bandwidth drops in middle of A1 frame downloading then player cannot immediately switch to B2 it has to download A1 full, frame swtiching can happens only on boundaries  --> PROBLEM : Flexibilty of switching
+
+	LONG SEG --> FEWER I-FRAMES --> BETTER COMPRESSION
+
+
+	Short--> we must have one i frame in each segment in case of shorter frames the count will be more that will take up the most amount of bits inthe stream since they are like standalone
+	SHORT SEG --> MORE I Frame --> LESS COMPRESSION
+
+
+Segment Durations : Recommendations
+	- Apple : 6 seconds
+	- 2-4 seconds is usually good
+
+
+Codecs
+
+	codec 				      | Compatibility | HLS | DASH
+	H.264 				      | High		      | Yes | Yes --> Safest approach
+	H.265 				      | Medium		    | Yes | Yes
+(by google)VP9   		  | High          | No  | Yes
+
+Containers
+
+	TS  --> HLS
+
+	fMP4 --> more efficient --> HLS and DASH
+
+Muxing Audio and Video
+	- Muxed together --> We can choose to have audio and video muxed together  in each TS and fMP4 during encoding this makes it a little less complex for the client to handle , since a single variant of the stream contains both audio and video but we can encode them seperately as well
+
+	- Seperate audio, seperate video
+
+
+
+HLS or DASH ?
+In terms of codec suppor and more standard MPEG DASH is slightly ahead of HLS. But over the years APple has updated HLS so now both offers same advantages for most of the practical use cases.
+One thing you may want to consider is where your audience will play the stream and whether the player is ready to play the format.
+For example, if you chose MPEG DASH and the users consume it froma browser then a javascript based player is needed that can utilize the media source extensions in a browser. since no browser can play MPEG dash natively yet, on the other hand Safari can play natively so if targeted audience is apple's ecosystem and you dont want to implement JS based player then we can use HLS
+
+
+Format    | Compatibility  | Browser Support
+HLS	      | High		       | JS+MSE/ Safari
+DASH      | High           | JS+MSE
+
+
+
+HLS and DASH
+---------------------
+IF you are not sure then you can produce both and use according to the situation
+
+
+Master playlist .m3u8 ----> media playlist0.m3u8, media playlist1.m3u8, media playlist2.m3u8
+																							|
+																							------> varient 0, varient 1, varient 2(fMP4 segments(.m4s))
+Manifest.mpd  ------------------------------------------------------------------------------|
+
+
+In this way we can use depending on client requirement
+
+
